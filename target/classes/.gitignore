@@ -1,4 +1,5 @@
 /com/
 /generatorConfig.xml
 /mybatis-config.xml
+/spring-shiro-web.xml
 /springmvc-mybatis.xml
