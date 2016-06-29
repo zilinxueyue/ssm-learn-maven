@@ -21,7 +21,7 @@
   
   
   
-    <bean id="myShiroRealm" class="com.alvin.shiro.MyShiroRealm">  
+    <bean id="myShiroRealm" class="com.alvin.shiro.UserRealm">  
     </bean>  
   
     <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">  

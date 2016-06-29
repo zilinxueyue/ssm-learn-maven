@@ -1,5 +1,7 @@
 package com.alvin.service;
 
+import java.util.Set;
+
 import com.alvin.mybatis.domain.MyEntity;
 import com.alvin.mybatis.domain.User;
 
@@ -20,5 +22,9 @@ public interface UserService {
 	    User selectByUserName(String name);
 	    
 	    MyEntity selectMyentityByPrimaryKey(Long id);
+	    
+	    Set<String> findRoles(String username);
+	    
+	    Set<String> findPermissions(String username);
 
 }

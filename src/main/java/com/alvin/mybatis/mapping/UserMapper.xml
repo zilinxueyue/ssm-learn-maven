@@ -7,9 +7,11 @@
     <result column="password" property="password" jdbcType="CHAR" />
     <result column="state" property="state" jdbcType="VARCHAR" />
     <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="salt" property="salt" jdbcType="VARCHAR" />
+    <result column="locked" property="locked" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, username, password, state, create_time
+    id, username, password, state, create_time, salt, locked
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
     select 
@@ -17,22 +19,23 @@
     from user
     where id = #{id,jdbcType=BIGINT}
   </select>
-   <select id="selectByUserName" resultMap="BaseResultMap" parameterType="java.lang.String" >
+  <select id="selectByUserName" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
     <include refid="Base_Column_List" />
     from user
-    where username = #{name,jdbcType=VARCHAR}
+    where username = #{username,jdbcType=VARCHAR}
   </select>
-  
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
     delete from user
     where id = #{id,jdbcType=BIGINT}
   </delete>
   <insert id="insert" parameterType="com.alvin.mybatis.domain.User" >
     insert into user (id, username, password, 
-      state, create_time)
+      state, create_time, salt, 
+      locked)
     values (#{id,jdbcType=BIGINT}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=CHAR}, 
-      #{state,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP})
+      #{state,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{salt,jdbcType=VARCHAR}, 
+      #{locked,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.alvin.mybatis.domain.User" >
     insert into user
@@ -52,6 +55,12 @@
       <if test="createTime != null" >
         create_time,
       </if>
+      <if test="salt != null" >
+        salt,
+      </if>
+      <if test="locked != null" >
+        locked,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -68,6 +77,12 @@
       </if>
       <if test="createTime != null" >
         #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="salt != null" >
+        #{salt,jdbcType=VARCHAR},
+      </if>
+      <if test="locked != null" >
+        #{locked,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
@@ -86,6 +101,12 @@
       <if test="createTime != null" >
         create_time = #{createTime,jdbcType=TIMESTAMP},
       </if>
+      <if test="salt != null" >
+        salt = #{salt,jdbcType=VARCHAR},
+      </if>
+      <if test="locked != null" >
+        locked = #{locked,jdbcType=INTEGER},
+      </if>
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
@@ -94,7 +115,9 @@
     set username = #{username,jdbcType=VARCHAR},
       password = #{password,jdbcType=CHAR},
       state = #{state,jdbcType=VARCHAR},
-      create_time = #{createTime,jdbcType=TIMESTAMP}
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      salt = #{salt,jdbcType=VARCHAR},
+      locked = #{locked,jdbcType=INTEGER}
     where id = #{id,jdbcType=BIGINT}
   </update>
 </mapper>

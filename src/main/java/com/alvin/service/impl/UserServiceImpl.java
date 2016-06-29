@@ -1,5 +1,7 @@
 package com.alvin.service.impl;
 
+import java.util.Set;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -53,15 +55,25 @@ public class UserServiceImpl implements UserService{
 	}
 
 	
-	public User selectByUserName(String name) {
+	public User selectByUserName(String username) {
 		// TODO Auto-generated method stub
-		return userMapper.selectByUserName(name);
+		return userMapper.selectByUserName(username);
 	}
 
 	
 	public MyEntity selectMyentityByPrimaryKey(Long id) {
 		// TODO Auto-generated method stub
 		return myMapper.selectMyentityByPrimaryKey(id);
+	}
+
+	public Set<String> findRoles(String username) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Set<String> findPermissions(String username) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 	

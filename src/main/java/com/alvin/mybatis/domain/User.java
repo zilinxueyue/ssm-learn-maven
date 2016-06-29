@@ -13,6 +13,10 @@ public class User {
 
     private Date createTime;
 
+    private String salt;
+
+    private Integer locked;
+
     public Long getId() {
         return id;
     }
@@ -53,11 +57,32 @@ public class User {
         this.createTime = createTime;
     }
 
+    public String getSalt() {
+        return salt;
+    }
+
+    public void setSalt(String salt) {
+        this.salt = salt == null ? null : salt.trim();
+    }
+
+    public Integer getLocked() {
+        return locked;
+    }
+
+    public void setLocked(Integer locked) {
+        this.locked = locked;
+    }
+
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", username=" + username + ", password=" + password + ", state=" + state
-				+ ", createTime=" + createTime + "]";
+				+ ", createTime=" + createTime + ", salt=" + salt + ", locked=" + locked + "]";
 	}
-    
+
+	public byte[] getCredentialsSalt() {
+		// TODO Auto-generated method stub
+		
+		return (username+salt).getBytes();
+	}
     
 }

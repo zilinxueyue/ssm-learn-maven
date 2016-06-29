@@ -18,23 +18,20 @@
             <property name="forceBigDecimals" value="false"/>    
         </javaTypeResolver>    
         <!-- 生成模型的包名和位置-->    
-        <javaModelGenerator targetPackage="com.alvin.mybatis.domain" targetProject="SSM-learn">    
+        <javaModelGenerator targetPackage="com.alvin.mybatis.domain" targetProject="ssm-learn-maven">    
             <property name="enableSubPackages" value="true"/>    
             <property name="trimStrings" value="true"/>    
         </javaModelGenerator>    
         <!-- 生成映射文件的包名和位置-->    
-        <sqlMapGenerator targetPackage="com.alvin.mybatis.mapping" targetProject="SSM-learn">    
+        <sqlMapGenerator targetPackage="com.alvin.mybatis.mapping" targetProject="ssm-learn-maven">    
             <property name="enableSubPackages" value="true"/>    
         </sqlMapGenerator>    
         <!-- 生成DAO的包名和位置-->    
-        <javaClientGenerator type="XMLMAPPER" targetPackage="com.alvin.mybatis.dao" targetProject="SSM-learn">    
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.alvin.mybatis.dao" targetProject="ssm-learn-maven">    
             <property name="enableSubPackages" value="true"/>    
         </javaClientGenerator>    
         <!-- 要生成的表 tableName是数据库中的表名或视图名 domainObjectName是实体类名-->    
        
-        <table tableName="t_user" domainObjectName="TUser" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
-        <table tableName="t_user_role" domainObjectName="UserRole" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
-        <table tableName="t_role" domainObjectName="Role" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
-        <table tableName="t_permission" domainObjectName="Permission" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>  
-    </context>    
+        <table tableName="user" domainObjectName="User" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
+         </context>    
 </generatorConfiguration>   
