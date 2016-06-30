@@ -6,14 +6,14 @@
 
 <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">  
         <property name="securityManager" ref="securityManager" />  
-        <property name="loginUrl" value="/login.do" />  
-        <property name="successUrl" value="/success.do" />  
+        <property name="loginUrl" value="/login" />  
+        <property name="successUrl" value="/success" />  
         <property name="unauthorizedUrl" value="/403" />  
            
         <property name="filterChainDefinitions">  
             <value>  
                 /login = authc <!-- authc 表示需要认证才能访问的页面 -->  
-                /success.do = authc, perms[/home]  <!-- perms 表示需要该权限才能访问的页面 -->  
+                /success = authc  <!-- perms 表示需要该权限才能访问的页面 , perms[/home] -->  
             </value>  
         </property>  
     </bean>  

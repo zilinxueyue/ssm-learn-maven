@@ -19,10 +19,12 @@
 </form>
  -->
 
-<form class="form-horizontal" action="login.do" style="margin-top: 240px;margin-left: 340px;">
-<p>  
-${msg }
-</p>
+<form class="form-horizontal" action="login" style="margin-top: 240px;margin-left: 340px;">
+ <div class="form-group"> <div class="col-xs-4">
+                    ${msg }
+
+</div>
+</div>
   <div class="form-group">
     <label for="inputEmail3" class="col-sm-2 control-label">User Name:</label>
     <div class="col-xs-4">

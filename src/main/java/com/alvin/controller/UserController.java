@@ -28,18 +28,7 @@ public class UserController {
 //	@Autowired
 //	private UserLoginService uLogin;
 	
-	
-	/*** 
-     * 跳转到登录页面 
-     *  
-     * @return 
-     */  
-    @RequestMapping(value = "toLogin.do")  
-    public String toLogin() {  
-        // 跳转到/page/login.jsp页面  
-        return "login";  
-    }  
-  
+
     /*** 
      * 实现用户登录 
      *  
@@ -47,7 +36,7 @@ public class UserController {
      * @param password 
      * @return 
      */  
-    @RequestMapping(value = "login.do")  
+    @RequestMapping(value = "login")  
     public ModelAndView Login(User user,ModelAndView mav) {   
     	
         User dbuser = uServer.selectByUserName(user.getUsername());  
@@ -71,11 +60,11 @@ public class UserController {
 		return mav;  
     }
     
-    @RequestMapping("success.do,")  
-    public String index() {  
-        System.out.println("login success");  
-        return "success";  
-    }  
+//    @RequestMapping("success")  
+//    public String index() {  
+//        System.out.println("login success");  
+//        return "success";  
+//    }  
 	
 //	@RequestMapping("/login.do")
 //	public String login(User user,Model mv){
